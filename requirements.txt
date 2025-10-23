@@ -1,0 +1,12 @@
+aiogram==3.15.0
+qrcode[pil]==8.0
+```
+
+**2. `Procfile`** (без расширения):
+```
+worker: python bot.py
+```
+
+**3. `runtime.txt`** (опционально, указывает версию Python):
+```
+python-3.11.0
