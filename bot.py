@@ -50,6 +50,10 @@ def extract_single_url(text: str) -> str | None:
     - Текст содержит ровно одну ссылку
     - Ссылка является единственным содержимым сообщения (без дополнительного текста)
     """
+    # Проверяем что text не None
+    if not text:
+        return None
+    
     # Паттерн для поиска URL
     url_pattern = r'https?://[^\s]+'
     urls = re.findall(url_pattern, text)
@@ -281,6 +285,10 @@ async def handle_text(message: types.Message):
     Обработчик текстовых сообщений (для QR-кодов)
     """
     try:
+        # Проверяем что текст существует
+        if not message.text:
+            return
+        
         # Извлекаем URL из сообщения
         url = extract_single_url(message.text)
         
